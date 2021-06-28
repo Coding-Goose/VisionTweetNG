@@ -1,0 +1,17 @@
+button {
+  padding: .5rem;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.blue {
+  background: #009CDE;
+}
+
+.red {
+  background-color: red;
+}
