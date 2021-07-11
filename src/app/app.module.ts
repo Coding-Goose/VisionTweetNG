@@ -2,13 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { TweetContainerComponent } from './tweet-container/tweet-container.component';
-import { TweetListComponent } from './tweet-list/tweet-list.component';
-import { TweetComponent } from './tweet/tweet.component';
-import { ButtonComponent } from './button/button.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { TweetContainerComponent } from './home/tweet-container/tweet-container.component';
+import { TweetListComponent } from './home/tweet-list/tweet-list.component';
+import { TweetComponent } from './home/tweet/tweet.component';
+import { ButtonComponent } from './shared/button/button.component';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { LoginPageComponent } from './login/login-page/login-page.component';
+import { LeftContainerComponent } from './login/left-container/left-container.component';
+import { RightContainerComponent } from './login/right-container/right-container.component';
+import { LoginFormComponent } from './login/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     TweetContainerComponent,
     TweetListComponent,
     TweetComponent,
-    ButtonComponent
+    ButtonComponent,
+    LoginPageComponent,
+    LeftContainerComponent,
+    RightContainerComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
