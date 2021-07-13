@@ -33,9 +33,16 @@ export class TweetListComponent {
         message: "Message Nummer3",
         user: "User Nummer3",
         avatarUrl: "https://picsum.photos/100?random=3"
+      },
+      {
+        message: "Message Nummer4",
+        user: "User Nummer4",
+        avatarUrl: "https://picsum.photos/100?random=4"
       }
     ];
   }
 
-
+  deleteTweet(index: number): void {
+    this.tweets.splice(index, 1);
+  }
 }

@@ -1,3 +1,3 @@
-<app-header></app-header>
-<app-tweet-container></app-tweet-container>
-<!--<app-login-page></app-login-page>-->
+<app-header (logout)="loginVisible = true"></app-header>
+<app-tweet-container *ngIf="!loginVisible"></app-tweet-container>
+<app-login-page *ngIf="loginVisible"></app-login-page>
