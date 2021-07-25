@@ -8,6 +8,7 @@ import {AfterViewInit, Component, Input, OnDestroy, OnInit} from '@angular/core'
 export class ButtonComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() color: 'red' | 'blue' = 'blue';
+  @Input() disabled: boolean = false;
 
   constructor() { }
 

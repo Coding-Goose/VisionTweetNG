@@ -8,6 +8,11 @@ button {
   border-radius: 3px;
 }
 
+button:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
 .blue {
   background: #009CDE;
 }
