@@ -1,11 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-type tweet = {
-  message: string;
-  user: string;
-  avatarUrl: string;
-};
-
+import {Component, Input} from '@angular/core';
+import {tweet} from "../tweet-container/tweet-container.component";
 
 @Component({
   selector: 'app-tweet-list',
@@ -14,33 +8,12 @@ type tweet = {
 })
 export class TweetListComponent {
 
-  tweets: tweet[];
+  @Input() tweets: tweet[] = [];
 
 
   constructor() {
-    this.tweets = [
-      {
-        message: "Message Nummer1",
-        user: "User Nummer1",
-        avatarUrl: "https://picsum.photos/100?random=1"
-      },
-      {
-        message: "Message Nummer2",
-        user: "User Nummer2",
-        avatarUrl: "https://picsum.photos/100?random=2"
-      },
-      {
-        message: "Message Nummer3",
-        user: "User Nummer3",
-        avatarUrl: "https://picsum.photos/100?random=3"
-      },
-      {
-        message: "Message Nummer4",
-        user: "User Nummer4",
-        avatarUrl: "https://picsum.photos/100?random=4"
-      }
-    ];
   }
+
 
   deleteTweet(index: number): void {
     this.tweets.splice(index, 1);
