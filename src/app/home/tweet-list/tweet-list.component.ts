@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {tweet} from "../tweet-container/tweet-container.component";
+import {tweet} from "../../shared/services/tweet.service";
 
 @Component({
   selector: 'app-tweet-list',
@@ -10,6 +10,7 @@ export class TweetListComponent {
 
   @Input() tweets: tweet[] = [];
 
+  einDate = new Date();
 
   constructor() {
   }

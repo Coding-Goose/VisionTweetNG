@@ -13,6 +13,8 @@ import { LoginPageComponent } from './login/login-page/login-page.component';
 import { LeftContainerComponent } from './login/left-container/left-container.component';
 import { RightContainerComponent } from './login/right-container/right-container.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
+import { LikeDirective } from './shared/directives/like.directive';
+import { RalfPipe } from './shared/directives/ralf.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     LeftContainerComponent,
     RightContainerComponent,
     LoginFormComponent,
+    LikeDirective,
+    RalfPipe,
   ],
   imports: [
     BrowserModule,

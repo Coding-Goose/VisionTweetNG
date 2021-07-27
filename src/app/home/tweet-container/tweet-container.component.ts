@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
+import {tweet, TweetService} from "../../shared/services/tweet.service";
 
-export type tweet = {
-  message: string;
-  user: string;
-  avatarUrl: string;
-};
 
 @Component({
   selector: 'app-tweet-container',
@@ -13,43 +10,27 @@ export type tweet = {
 })
 export class TweetContainerComponent implements OnInit {
 
-  newTweetText: string = '';
-  tweets: tweet[];
+  tweets: tweet[] = [];
+  newTweetArea: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(10),
+    Validators.maxLength(40)
+  ]);
 
-  constructor() {
-    this.tweets =  this.tweets = [
-      {
-        message: "Message Nummer1",
-        user: "User Nummer1",
-        avatarUrl: "https://picsum.photos/100?random=1"
-      },
-      {
-        message: "Message Nummer2",
-        user: "User Nummer2",
-        avatarUrl: "https://picsum.photos/100?random=2"
-      },
-      {
-        message: "Message Nummer3",
-        user: "User Nummer3",
-        avatarUrl: "https://picsum.photos/100?random=3"
-      },
-      {
-        message: "Message Nummer4",
-        user: "User Nummer4",
-        avatarUrl: "https://picsum.photos/100?random=4"
-      }
-    ];
+  constructor(private tweetService: TweetService) {
   }
 
   ngOnInit(): void {
+    this.tweets = this.tweetService.getTweets();
   }
 
   onPost() {
     this.tweets.push({
-      message: this.newTweetText,
+      message: this.newTweetArea.value,
       user: 'Ich',
-      avatarUrl: "https://picsum.photos/100?random=" + this.tweets.length + 1
+      avatarUrl: "https://picsum.photos/100?random=" + this.tweets.length + 1,
+      liked: false
     });
-    this.newTweetText = '';
+    this.newTweetArea.setValue('');
   }
 }

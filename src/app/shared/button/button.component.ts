@@ -13,14 +13,11 @@ export class ButtonComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor() { }
 
   ngAfterViewInit(): void {
-    console.log("After View init")
   }
 
   ngOnDestroy(): void {
-    console.log("Destroy")
   }
 
   ngOnInit(): void {
-    console.log("INIT")
   }
 }
