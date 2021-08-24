@@ -1,4 +1,4 @@
 <header>
   <h1>VisionTweet</h1>
-  <app-button color="red" (click)="onLogoutClick()">Logout</app-button>
+  <app-button color="red" *ngIf="loggedIn" (click)="onLogoutClick()">Logout</app-button>
 </header>

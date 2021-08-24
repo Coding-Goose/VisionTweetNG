@@ -15,6 +15,7 @@ import { RightContainerComponent } from './login/right-container/right-container
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { LikeDirective } from './shared/directives/like.directive';
 import { RalfPipe } from './shared/directives/ralf.pipe';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,21 @@ import { RalfPipe } from './shared/directives/ralf.pipe';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forRoot([
+      {
+        path: 'login',
+        component: LoginPageComponent
+      },
+      {
+        path: 'home',
+        component: TweetContainerComponent
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'login'
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
