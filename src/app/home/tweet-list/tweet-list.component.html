@@ -1,4 +1,4 @@
 <ul id="tweet-list">
   <app-tweet [appLike]="tweet.liked" *ngFor="let tweet of tweets; let i = index" [message]="tweet.message" [user]="tweet.user"
-            (dblclick)="tweet.liked = true" [avatarUrl]="tweet.avatarUrl" (onDelete)="deleteTweet(i)"></app-tweet>
+            (dblclick)="tweet.liked = true" [avatarUrl]="tweet.avatarUrl" (onDelete)="deleteTweet(tweet)"></app-tweet>
 </ul>

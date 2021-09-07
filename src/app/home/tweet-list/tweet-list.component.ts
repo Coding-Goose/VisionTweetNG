@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {tweet} from "../../shared/services/tweet.service";
+import {tweet, TweetService} from "../../shared/services/tweet.service";
 
 @Component({
   selector: 'app-tweet-list',
@@ -12,11 +12,13 @@ export class TweetListComponent {
 
   einDate = new Date();
 
-  constructor() {
+  constructor(private tweetService: TweetService) {
   }
 
 
-  deleteTweet(index: number): void {
-    this.tweets.splice(index, 1);
+  deleteTweet(tweet: tweet): void {
+    this.tweetService.deleteTweet(tweet.id).then(_ => {
+      this.tweets.splice(this.tweets.indexOf(tweet), 1);
+    });
   }
 }

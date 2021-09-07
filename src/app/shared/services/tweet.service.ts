@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 export type tweet = {
   message: string;
   user: string;
   avatarUrl: string;
   liked: boolean;
+  id: number;
 };
 
 @Injectable({
@@ -12,38 +14,20 @@ export type tweet = {
 })
 export class TweetService {
 
-  tweets: tweet[];
+  apiUrl = "https://vision-tweet-backend.herokuapp.com/tweets";
 
-  constructor() {
-    this.tweets =  this.tweets = [
-      {
-        message: "Message Nummer1",
-        user: "User Nummer1",
-        avatarUrl: "https://picsum.photos/100?random=1",
-        liked: true
-      },
-      {
-        message: "Message Nummer2",
-        user: "User Nummer2",
-        avatarUrl: "https://picsum.photos/100?random=2",
-        liked: false
-      },
-      {
-        message: "Message Nummer3",
-        user: "User Nummer3",
-        avatarUrl: "https://picsum.photos/100?random=3",
-        liked: false
-      },
-      {
-        message: "Message Nummer4",
-        user: "User Nummer4",
-        avatarUrl: "https://picsum.photos/100?random=4",
-        liked: false
-      }
-    ];
+  constructor(private http: HttpClient) {
   }
 
-  getTweets(): tweet[] {
-    return this.tweets;
+  getTweets(): Promise<tweet[]> {
+    return this.http.get<tweet[]>(this.apiUrl).toPromise();
+  }
+
+  addTweet(tweet: tweet): Promise<tweet> {
+    return this.http.post<tweet>(this.apiUrl, tweet).toPromise();
+  }
+
+  deleteTweet(id: number): Promise<number> {
+    return this.http.delete<number>(this.apiUrl + '/' + id).toPromise();
   }
 }

@@ -23,20 +23,22 @@ export class TweetContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tweets = this.tweetService.getTweets();
+    this.tweetService.getTweets().then(tweets => this.tweets = tweets);
     this.authService.username$.subscribe(value => {
-      console.log("cmon", value);
       this.username = value;
     });
   }
 
   onPost() {
-    this.tweets.push({
+    this.tweetService.addTweet({
       message: this.newTweetArea.value,
       user: this.username,
       avatarUrl: "https://picsum.photos/100?random=" + this.tweets.length + 1,
-      liked: false
+      liked: false,
+      id: Math.random() * 10
+    }).then(el => {
+      this.tweets.push(el);
+      this.newTweetArea.setValue('');
     });
-    this.newTweetArea.setValue('');
   }
 }
