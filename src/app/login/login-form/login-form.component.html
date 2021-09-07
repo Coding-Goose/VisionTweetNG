@@ -1,0 +1,12 @@
+<form class="login-form" [formGroup]="loginForm">
+  <label for="login-mail">E-Mail</label>
+  <input id="login-mail" type="email" placeholder="E-Mail" formControlName="email">
+  <label for="login-password">Passwort</label>
+  <input id="login-password" type="password" placeholder="Passwort" formControlName="password">
+  <div>
+    <input id="dsgvo-checkbox" type="checkbox" style="height: 1.5rem; width: 1.5rem" formControlName="dsgvo">
+    <label for="dsgvo-checkbox" style="color: cornflowerblue;">Ich habe die nicht vorhandene DSGVO gelesen und verkaufe meine
+      Selee.</label>
+  </div>
+  <app-button [disabled]="!loginForm.valid" (click)="onLogin()">Login</app-button>
+</form>

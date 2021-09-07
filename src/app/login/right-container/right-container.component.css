@@ -1,0 +1,65 @@
+.right-box {
+  background-image: linear-gradient(90deg , transparent, #009CDE);
+  height: 100vh;
+  top: 0;
+  position: absolute;
+  width: 80vw;
+  right: 0;
+  z-index: 1;
+}
+
+.banner {
+  color: white;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 4rem;
+}
+
+.banner > h1 {
+  font-size: 4rem;
+  position: relative;
+}
+
+#second-heading {
+  animation-name: slide-in;
+  animation-duration: 1.7s;
+}
+
+#first-heading {
+  animation-name: slide-in;
+  animation-duration: 1s;
+}
+
+#third-heading {
+  animation-name: slide-in;
+  animation-duration: 2.3s;
+}
+
+.banner > p, img {
+  font-size: 1.5rem;
+  animation-name: fade-in;
+  animation-duration: 3.5s;
+}
+
+.banner > img {
+  transform: rotate(180deg);
+  width: 5rem;
+  height: 5rem;
+}
+
+@keyframes slide-in {
+  0%   {right: -1000px;}
+  100% {right: 0;}
+}
+
+@keyframes fade-in {
+  0%   {opacity: 0;}
+  50%  {opacity: 0;}
+  100% {opacity: 1;}
+}
+

@@ -1,0 +1,10 @@
+<section>
+
+  <div class="new-tweet-container">
+    <app-button (click)="onPost()" [disabled]="!newTweetArea.valid">POST</app-button>
+    <textarea [formControl]="newTweetArea" id="message-box" cols="77" rows="3" placeholder="Come and post something!"></textarea>
+  </div>
+
+  <app-tweet-list [tweets]="tweets"></app-tweet-list>
+
+</section>
